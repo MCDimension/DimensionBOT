@@ -3,6 +3,7 @@ package net.ppekkungz;
 import io.github.cdimascio.dotenv.Dotenv;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
+import net.dv8tion.jda.api.entities.Activity;
 import net.ppekkungz.commands.*;
 import net.ppekkungz.commands.music.*;
 
@@ -11,7 +12,9 @@ import javax.security.auth.login.LoginException;
 public class Main {
     public static void main(String[] args) throws LoginException {
         JDA jda = JDABuilder.createDefault(Dotenv.load().get("TOKEN")).build();
+        jda.getPresence().setActivity(Activity.watching("https://dimension-studio.online"));
         jda.addEventListener(new Listeners());
+
         CommandManager manager = new CommandManager();
         manager.add(new Sum());
         manager.add(new Embed());

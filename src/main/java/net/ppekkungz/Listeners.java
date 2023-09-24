@@ -8,7 +8,6 @@ import net.dv8tion.jda.api.interactions.modals.ModalMapping;
 import org.jetbrains.annotations.NotNull;
 
 public class Listeners extends ListenerAdapter {
-
     @Override
     public void onButtonInteraction(@NotNull ButtonInteractionEvent event) {
         if(event.getButton().getId().equals("yes-button")) {
